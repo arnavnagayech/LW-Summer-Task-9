@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@500&display=swap" rel="stylesheet">
+    <title>Kubernetes WebApp</title>
+
+    <style>
+        body{
+            background-color: rgb(250, 227, 227);
+        }
+        .c1{
+            color: rgb(121, 216, 83);
+            font-family: 'Baloo Paaji 2', ;
+        }
+      img {
+            width: 750px;
+            height: 280px;
+            padding-left: 100px;
+      }
+      p{
+        text-align:center;
+      }
+      #q1{
+          background-image: url('back.png');
+          margin-left: 400px;
+          width: 770px;
+          height: 410px;
+          margin-top: 30px;
+      }
+      #a2{
+          padding-top: 40px;
+      }
+      .btn {
+            margin: 0px 9px;
+            background-color: rgb(12, 11, 11);
+            color: white;
+            padding: 3px 14px;
+            /* border: 2px solid grey; */
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            font-family: 'Baloo Paaji 2', cursive;
+        }
+
+        .btn:hover {
+            font-family: 'Baloo Paaji 2', cursive;
+            background-color: rgb(194, 184, 184);
+        }
+    </style>
+  </head>
+  <body>
+    <script>
+        function lw() 
+        {
+        var i = document.getElementById("in1").value
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET" , "http://192.168.1.11/cgi-bin/k8s.py?x=" + i, true);
+        
+        xhr.send();
+        
+        //output from above url
+        xhr.onload = function () {
+                 var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;
+                }
+        }
+        
+    </script>
+    <div id="a1" >
+        <p><img src="k8s.png" alt="loading.." >
+        </p>
+    </div>
+
+    <p>
+    <div id='q1'>
+        
+      
+    <div id ='a2' class="c1">
+        <p>[root@localhost ~]# <input id='in1'></p>
+    
+        <pre> 
+        <div id='d1' class="c1">
+            <p>output here..</p>
+        </div>
+        </pre>
+    </div>
+
+    <p><button onclick="lw()" class="btn"> click</button></p>
+    
+
+    </div></p>
+
+  </body>
+</html>
